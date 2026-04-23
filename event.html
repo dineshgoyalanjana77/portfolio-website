@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  height: 100vh;
+  margin: 0;
+}
+
+
+#box {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+   margin-top: 100px;
+
+}
+.fourbox{ 
+ margin-top: 20px;
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div id="box"></div>
+
+<br><br>
+<div class="fourbox">
+<button id="topBtn">Top</button>
+<button id="leftBtn">Left</button>
+<button id="rightBtn">Right</button>
+<button id="bottomBtn">Bottom</button>
+</div>
+<script>
+let box = document.getElementById("box");
+
+document.getElementById("topBtn").addEventListener("click", function() {
+  box.style.top = "-100px";
+});
+
+document.getElementById("leftBtn").addEventListener("click", function() {
+  box.style.left = "-100px";
+});
+
+document.getElementById("rightBtn").addEventListener("click", function() {
+  box.style.left = "50px";
+});
+
+document.getElementById("bottomBtn").addEventListener("click", function() {
+  box.style.top = "50px";
+});
+</script>
+</body>
+</html>
