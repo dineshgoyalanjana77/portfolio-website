@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display:flex;justify-content:center;align-items:center;height:100vh;">
+
+<div id="clock" style="
+  width:200px;height:200px;border:5px solid black;
+  border-radius:50%;position:relative;
+">
+
+  <!-- Numbers -->
+  <div style="position:absolute;top:5px;left:50%;transform:translateX(-50%)">12</div>
+ 
+  <div style="position:absolute;top:50%;right:5px;transform:translateY(-50%)">3</div>
+  <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%)">6</div>
+  <div style="position:absolute;top:50%;left:5px;transform:translateY(-50%)">9</div>
+
+  <!-- Hands -->
+  <div id="h" style="position:absolute;width:4px;height:50px;background:black;top:50%;left:50%;transform-origin:bottom;"></div>
+  <div id="m" style="position:absolute;width:3px;height:70px;background:black;top:50%;left:50%;transform-origin:bottom;"></div>
+  <div id="s" style="position:absolute;width:2px;height:90px;background:red;top:50%;left:50%;transform-origin:bottom;"></div>
+</div>
+
+<script>
+setInterval(() => {
+  let d = new Date();
+
+  let h = d.getHours() * 30;
+  let m = d.getMinutes() * 6;
+  let s = d.getSeconds() * 6;
+
+  h += d.getMinutes() * 0.5; // smooth hour hand
+
+  document.getElementById("h").style.transform = `translate(-50%,-100%) rotate(${h}deg)`;
+  document.getElementById("m").style.transform = `translate(-50%,-100%) rotate(${m}deg)`;
+  document.getElementById("s").style.transform = `translate(-50%,-100%) rotate(${s}deg)`;
+
+}, 1000);
+</script>
+
+</body>
+</html>
