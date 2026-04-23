@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+<style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000000;
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    #display {
+      width: 90%;
+      height: 50px;
+      margin-bottom: 15px;
+      font-size: 22px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 5px;
+      border-color: red;
+      background: #111;
+      color: #fff;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 70px);
+      gap: 10px;
+    }
+    button {
+      height: 50px;
+      font-size: 18px;
+    
+      border-radius: 5px;
+      border-color: #eaee0f ;
+      background: #2e2be2;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #f06306;
+    }
+    .equal {
+      grid-column: span 1;
+      background: #0ee640;
+    }
+    .clear {
+      background: #e60a20;
+    }
+  </style>
+
+
+</head>
+<body>
+
+      <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button class="clear">AC</button>
+      <button data-value="/">/</button>
+      <button data-value="*">*</button>
+      <button data-value="-">-</button>
+      <button data-value="7">7</button>
+      <button data-value="8">8</button>
+      <button data-value="9">9</button>
+      <button data-value="+">+</button>
+      <button data-value="4">4</button>
+      <button data-value="5">5</button>
+      <button data-value="6">6</button>
+     <button data-value="%">%</button>
+      <button data-value="1">1</button>
+      <button data-value="2">2</button>
+      <button data-value="3">3</button>
+      <button data-value="0">0</button>
+      <button data-value="00">00</button>
+      <button data-value=".">.</button>
+       <button class="delete">←</button>
+       <button class="equal">=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("clear")) {
+          display.value = "";
+        }else if (btn.classList.contains("delete")) {
+          display.value = display.value.slice(0, -1);
+        } else if (btn.classList.contains("equal")) {
+          try {
+            display.value = Function("return " + display.value)();
+          } catch {
+            display.value = "Error";
+          }
+        } else {
+          display.value += btn.getAttribute("data-value");
+        }
+      });
+    });
+  </script>
+
+
+    
+</body>
+</html>
