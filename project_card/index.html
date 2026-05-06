@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+#search {
+  padding: 10px;
+  width: 300px;
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+  background: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: skyblue;
+}
+
+</style>
+<body>
+  
+     <h1>My Search Project</h1>
+
+  <!-- Search Bar -->
+  <input type="text" id="search" placeholder="Search website...">
+
+  <!-- Cards -->
+  <div class="container">
+
+    <div class="card" data-name="google" onclick="openSite('https://www.google.com')">
+      Google
+    </div>
+
+    <div class="card" data-name="youtube" onclick="openSite('https://www.youtube.com')">
+      YouTube
+    </div>
+
+    <div class="card" data-name="facebook" onclick="openSite('https://www.facebook.com')">
+      Facebook
+    </div>
+
+    <div class="card" data-name="instagram" onclick="openSite('https://www.instagram.com')">
+      Instagram
+    </div>
+
+    <div class="card" data-name="github" onclick="openSite('https://www.github.com')">
+      GitHub
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
