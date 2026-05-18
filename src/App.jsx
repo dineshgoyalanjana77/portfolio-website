@@ -1,25 +1,35 @@
-import { useState } from 'react'
-import Todoapp from "./Todoapp"
 
-import Login from "./Login"
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Userlist from './pages/Userlist';
+import AddEdituser from './pages/AddEdituser';
+import Mainlayout from './layout/Mainlayout';
 
 function App() {
-
+ 
 
   return (
     <>
-    <Todoapp />
+      
+<BrowserRouter>
 
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+<Routes>
+<Route element={<Mainlayout />}>
+<Route path="/" element={<Userlist/>} />
 
-< Login/>
+<Route path="/add" element={<AddEdituser/>} />
+
+<Route path="/edit/:id" element={<AddEdituser/>} />
+</Route>
+</Routes>
+</BrowserRouter>
 
     </>
   )
 }
 
 export default App
+
+
+
+
+
